@@ -5,12 +5,7 @@ import "./LandingPage.css";
 import Button from "react-bootstrap/esm/Button";
 
 const LandingPage = () => {
-  // useEffect(() => {
-  //   const userInfo = localStorage.getItem("userInfo");
-  //   if (userInfo) {
-  //     navigate("/mynotes");
-  //   }
-  // }, [navigate]);
+
 
   return (
     <div className="main">

@@ -6,8 +6,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyNotes from "./screens/MyNotes/MyNotes";
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen/RegisterScreen";
+import CreateNote from "./screens/CreateNote/CreateNote";
+import SingleNote from "./screens/SingleNote/SingleNote";
 
-const App = () => (
+const App = () => { 
+  
+  return (
   <BrowserRouter>
     <Header></Header>
     <main>
@@ -15,11 +19,13 @@ const App = () => (
         <Route path="/" Component={LandingPage} />
         <Route path="/login" Component={LoginScreen} />
         <Route path="/register" Component={RegisterScreen} />
+        <Route path="/createnote" Component={CreateNote} />
+        <Route path="/note/:id" Component={SingleNote} />
         <Route path="/mynotes" Component={MyNotes} />
       </Routes>
     </main>
     <Footer></Footer>
-  </BrowserRouter>
-);
+  </BrowserRouter>)
+};
 
 export default App;

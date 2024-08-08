@@ -1,10 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
+import {
+  noteCreateReducer,
+  noteDeleteReducer,
+  noteListReducer,
+  noteUpdateReducer,
+} from "./reducers/noteReducer";
 
 const rootReducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  noteList: noteListReducer,
+  noteCreate: noteCreateReducer,
+  noteUpdate: noteUpdateReducer,
+  noteDelete: noteDeleteReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

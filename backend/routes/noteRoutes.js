@@ -5,6 +5,7 @@ const {
   getNoteById,
   updateNote,
   deleteNote,
+  getAllNotes,
 } = require("../controllers/noteController");
 const { protect } = require("../middlewares/authMiddleware");
 
@@ -12,6 +13,8 @@ const router = express.Router();
 
 router.route("/").get(protect, getNotes);
 router.route("/create").post(protect, createNote);
+router.get("/all", protect, getAllNotes);
+
 router
   .route("/:id")
   .get(getNoteById)

@@ -1,0 +1,77 @@
+/* Grid layout with dynamic column spanning */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust based on content width */
+  grid-auto-flow: dense; /* Fill gaps as they appear */
+  gap: 10px; /* Space between notes */
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Style each note item */
+.note-item {
+  background: #f4f4f4;
+  padding: 8px; /* Reduced padding */
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box; /* Ensure padding is included in dimensions */
+}
+
+/* Heading and paragraph font sizes for readability */
+.note-item h3 {
+  font-size: 14px; /* Adjusted font size */
+  margin-bottom: 5px; /* Reduced margin */
+  font-weight: bold;
+}
+
+.note-item p {
+  font-size: 12px; /* Adjusted font size */
+  margin: 3px 0; /* Reduced margin */
+  line-height: 1.3; /* Reduced line-height */
+  flex: 1; /* Allow paragraphs to grow */
+  overflow: visible; /* Ensure overflow text is visible */
+}
+
+/* Print-specific styling */
+@media print {
+  @page {
+    size: A4; /* Set page size to A4 */
+    margin: 10mm; /* Margins around the content */
+  }
+
+  /* Hide header and buttons in print */
+  .no-print {
+    display: none;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust columns for print */
+    gap: 5px; /* Reduced gap */
+    padding: 0; /* Remove padding for print */
+    width: auto; /* Adjust width for print */
+  }
+
+  .note-item {
+    padding: 4px; /* Reduced padding for print */
+    font-size: 10px; /* Smaller font size */
+    margin-bottom: 3px; /* Reduced margin-bottom */
+    box-shadow: none; /* Remove shadow for print */
+    height: auto; /* Ensure height is flexible for print */
+    overflow: visible; /* Ensure overflow content is visible */
+    page-break-inside: avoid; /* Avoid breaking inside notes */
+  }
+
+  .note-item h3 {
+    font-size: 10px; /* Smaller heading for print */
+  }
+
+  .note-item p {
+    font-size: 8px; /* Smaller paragraph text for print */
+  }
+}

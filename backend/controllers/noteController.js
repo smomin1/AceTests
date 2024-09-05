@@ -70,4 +70,17 @@ const deleteNote = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getNotes, createNote, getNoteById, updateNote, deleteNote };
+// Fetch all notes for a user
+const getAllNotes = asyncHandler(async (req, res) => {
+  const notes = await Note.find({ user: req.user._id });
+  res.json(notes);
+});
+
+module.exports = {
+  getNotes,
+  createNote,
+  getNoteById,
+  updateNote,
+  deleteNote,
+  getAllNotes,
+};
